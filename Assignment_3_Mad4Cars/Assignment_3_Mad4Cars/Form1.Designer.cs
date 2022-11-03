@@ -38,14 +38,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.EmailTextBox = new System.Windows.Forms.TextBox();
+            this.PhoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ClientNameTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.EIRCodeTextBox = new System.Windows.Forms.Label();
+            this.SubmitButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.InvestmentSchemesGroupBox = new System.Windows.Forms.GroupBox();
@@ -134,14 +134,14 @@
             this.InvestorDetailsGroupBox.Controls.Add(this.label8);
             this.InvestorDetailsGroupBox.Controls.Add(this.pictureBox1);
             this.InvestorDetailsGroupBox.Controls.Add(this.label7);
-            this.InvestorDetailsGroupBox.Controls.Add(this.textBox5);
-            this.InvestorDetailsGroupBox.Controls.Add(this.textBox4);
+            this.InvestorDetailsGroupBox.Controls.Add(this.EmailTextBox);
+            this.InvestorDetailsGroupBox.Controls.Add(this.PhoneNumberTextBox);
             this.InvestorDetailsGroupBox.Controls.Add(this.textBox3);
-            this.InvestorDetailsGroupBox.Controls.Add(this.textBox2);
+            this.InvestorDetailsGroupBox.Controls.Add(this.ClientNameTextBox);
             this.InvestorDetailsGroupBox.Controls.Add(this.label5);
             this.InvestorDetailsGroupBox.Controls.Add(this.label4);
-            this.InvestorDetailsGroupBox.Controls.Add(this.label3);
-            this.InvestorDetailsGroupBox.Controls.Add(this.button1);
+            this.InvestorDetailsGroupBox.Controls.Add(this.EIRCodeTextBox);
+            this.InvestorDetailsGroupBox.Controls.Add(this.SubmitButton);
             this.InvestorDetailsGroupBox.Controls.Add(this.label6);
             this.InvestorDetailsGroupBox.Controls.Add(this.label2);
             this.InvestorDetailsGroupBox.Location = new System.Drawing.Point(18, 323);
@@ -180,19 +180,19 @@
             this.label7.Size = new System.Drawing.Size(114, 23);
             this.label7.TabIndex = 3;
             // 
-            // textBox5
+            // EmailTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(170, 123);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(154, 22);
-            this.textBox5.TabIndex = 1;
+            this.EmailTextBox.Location = new System.Drawing.Point(170, 123);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.Size = new System.Drawing.Size(154, 22);
+            this.EmailTextBox.TabIndex = 1;
             // 
-            // textBox4
+            // PhoneNumberTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(170, 93);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(154, 22);
-            this.textBox4.TabIndex = 1;
+            this.PhoneNumberTextBox.Location = new System.Drawing.Point(170, 93);
+            this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
+            this.PhoneNumberTextBox.Size = new System.Drawing.Size(154, 22);
+            this.PhoneNumberTextBox.TabIndex = 1;
             // 
             // textBox3
             // 
@@ -201,12 +201,12 @@
             this.textBox3.Size = new System.Drawing.Size(154, 22);
             this.textBox3.TabIndex = 1;
             // 
-            // textBox2
+            // ClientNameTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(170, 31);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(154, 22);
-            this.textBox2.TabIndex = 1;
+            this.ClientNameTextBox.Location = new System.Drawing.Point(170, 31);
+            this.ClientNameTextBox.Name = "ClientNameTextBox";
+            this.ClientNameTextBox.Size = new System.Drawing.Size(154, 22);
+            this.ClientNameTextBox.TabIndex = 1;
             // 
             // label5
             // 
@@ -226,25 +226,25 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Phone Number";
             // 
-            // label3
+            // EIRCodeTextBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 66);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Post Code";
+            this.EIRCodeTextBox.AutoSize = true;
+            this.EIRCodeTextBox.Location = new System.Drawing.Point(21, 66);
+            this.EIRCodeTextBox.Name = "EIRCodeTextBox";
+            this.EIRCodeTextBox.Size = new System.Drawing.Size(65, 16);
+            this.EIRCodeTextBox.TabIndex = 0;
+            this.EIRCodeTextBox.Text = "EIR Code";
             // 
-            // button1
+            // SubmitButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button1.Location = new System.Drawing.Point(210, 184);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 30);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "&Submit";
-            this.button1.UseVisualStyleBackColor = false;
-            
+            this.SubmitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.SubmitButton.Location = new System.Drawing.Point(210, 184);
+            this.SubmitButton.Name = "SubmitButton";
+            this.SubmitButton.Size = new System.Drawing.Size(114, 30);
+            this.SubmitButton.TabIndex = 2;
+            this.SubmitButton.Text = "&Submit";
+            this.SubmitButton.UseVisualStyleBackColor = false;
+            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // label6
             // 
@@ -287,19 +287,19 @@
             // TotalRepaymentsLabel
             // 
             this.TotalRepaymentsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalRepaymentsLabel.Location = new System.Drawing.Point(558, 82);
+            this.TotalRepaymentsLabel.Location = new System.Drawing.Point(363, 77);
             this.TotalRepaymentsLabel.Name = "TotalRepaymentsLabel";
-            this.TotalRepaymentsLabel.Size = new System.Drawing.Size(147, 30);
+            this.TotalRepaymentsLabel.Size = new System.Drawing.Size(146, 33);
             this.TotalRepaymentsLabel.TabIndex = 4;
-            this.TotalRepaymentsLabel.Text = "Total Repayments";
+            this.TotalRepaymentsLabel.Text = "Total Annual Payment";
             this.TotalRepaymentsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TotalInterestLabel
             // 
             this.TotalInterestLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalInterestLabel.Location = new System.Drawing.Point(423, 82);
+            this.TotalInterestLabel.Location = new System.Drawing.Point(288, 76);
             this.TotalInterestLabel.Name = "TotalInterestLabel";
-            this.TotalInterestLabel.Size = new System.Drawing.Size(117, 30);
+            this.TotalInterestLabel.Size = new System.Drawing.Size(88, 34);
             this.TotalInterestLabel.TabIndex = 4;
             this.TotalInterestLabel.Text = "Total Interest";
             this.TotalInterestLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -307,31 +307,30 @@
             // MonthlyInterestLabel
             // 
             this.MonthlyInterestLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MonthlyInterestLabel.Location = new System.Drawing.Point(266, 82);
+            this.MonthlyInterestLabel.Location = new System.Drawing.Point(213, 74);
             this.MonthlyInterestLabel.Name = "MonthlyInterestLabel";
-            this.MonthlyInterestLabel.Size = new System.Drawing.Size(136, 30);
+            this.MonthlyInterestLabel.Size = new System.Drawing.Size(87, 38);
             this.MonthlyInterestLabel.TabIndex = 4;
-            this.MonthlyInterestLabel.Text = "Monthly Interest";
+            this.MonthlyInterestLabel.Text = "Monthly EMI";
             this.MonthlyInterestLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // InterestRateLabel
             // 
             this.InterestRateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InterestRateLabel.Location = new System.Drawing.Point(146, 82);
+            this.InterestRateLabel.Location = new System.Drawing.Point(149, 73);
             this.InterestRateLabel.Name = "InterestRateLabel";
-            this.InterestRateLabel.Size = new System.Drawing.Size(114, 30);
+            this.InterestRateLabel.Size = new System.Drawing.Size(77, 41);
             this.InterestRateLabel.TabIndex = 4;
             this.InterestRateLabel.Text = "Interest Rate";
-            this.InterestRateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PeriodLabel
             // 
             this.PeriodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PeriodLabel.Location = new System.Drawing.Point(21, 82);
+            this.PeriodLabel.Location = new System.Drawing.Point(21, 71);
             this.PeriodLabel.Name = "PeriodLabel";
-            this.PeriodLabel.Size = new System.Drawing.Size(83, 30);
+            this.PeriodLabel.Size = new System.Drawing.Size(83, 44);
             this.PeriodLabel.TabIndex = 4;
-            this.PeriodLabel.Text = "Period";
+            this.PeriodLabel.Text = "Loan Period";
             this.PeriodLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // InvestmentListBox
@@ -352,6 +351,7 @@
             this.ClearButtonInvestment.TabIndex = 2;
             this.ClearButtonInvestment.Text = "&Clear";
             this.ClearButtonInvestment.UseVisualStyleBackColor = false;
+            this.ClearButtonInvestment.Click += new System.EventHandler(this.ClearButtonInvestment_Click);
             // 
             // ProceedButton
             // 
@@ -381,7 +381,6 @@
             this.PrincipalTextBox.Name = "PrincipalTextBox";
             this.PrincipalTextBox.Size = new System.Drawing.Size(201, 22);
             this.PrincipalTextBox.TabIndex = 1;
-            this.PrincipalTextBox.Text = "4";
             // 
             // label1
             // 
@@ -554,14 +553,14 @@
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Button ClearButtonSearch;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox EmailTextBox;
+        private System.Windows.Forms.TextBox PhoneNumberTextBox;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox ClientNameTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label EIRCodeTextBox;
+        private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox SearchListBox;
