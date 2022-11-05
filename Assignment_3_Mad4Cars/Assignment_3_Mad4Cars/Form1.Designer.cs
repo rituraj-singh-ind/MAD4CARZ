@@ -37,14 +37,14 @@
             this.InvestorDetailsGroupBox = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.TrxIDLabel = new System.Windows.Forms.Label();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.PhoneNumberTextBox = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.EIRCodeTextBox = new System.Windows.Forms.TextBox();
             this.ClientNameTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.EIRCodeTextBox = new System.Windows.Forms.Label();
+            this.EIRCodeLabel = new System.Windows.Forms.Label();
             this.SubmitButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -133,17 +133,18 @@
             // 
             this.InvestorDetailsGroupBox.Controls.Add(this.label8);
             this.InvestorDetailsGroupBox.Controls.Add(this.pictureBox1);
-            this.InvestorDetailsGroupBox.Controls.Add(this.label7);
+            this.InvestorDetailsGroupBox.Controls.Add(this.TrxIDLabel);
             this.InvestorDetailsGroupBox.Controls.Add(this.EmailTextBox);
             this.InvestorDetailsGroupBox.Controls.Add(this.PhoneNumberTextBox);
-            this.InvestorDetailsGroupBox.Controls.Add(this.textBox3);
+            this.InvestorDetailsGroupBox.Controls.Add(this.EIRCodeTextBox);
             this.InvestorDetailsGroupBox.Controls.Add(this.ClientNameTextBox);
             this.InvestorDetailsGroupBox.Controls.Add(this.label5);
             this.InvestorDetailsGroupBox.Controls.Add(this.label4);
-            this.InvestorDetailsGroupBox.Controls.Add(this.EIRCodeTextBox);
+            this.InvestorDetailsGroupBox.Controls.Add(this.EIRCodeLabel);
             this.InvestorDetailsGroupBox.Controls.Add(this.SubmitButton);
             this.InvestorDetailsGroupBox.Controls.Add(this.label6);
             this.InvestorDetailsGroupBox.Controls.Add(this.label2);
+            this.InvestorDetailsGroupBox.Enabled = false;
             this.InvestorDetailsGroupBox.Location = new System.Drawing.Point(18, 323);
             this.InvestorDetailsGroupBox.Name = "InvestorDetailsGroupBox";
             this.InvestorDetailsGroupBox.Size = new System.Drawing.Size(721, 238);
@@ -172,13 +173,13 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // label7
+            // TrxIDLabel
             // 
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Location = new System.Drawing.Point(580, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 23);
-            this.label7.TabIndex = 3;
+            this.TrxIDLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TrxIDLabel.Location = new System.Drawing.Point(580, 30);
+            this.TrxIDLabel.Name = "TrxIDLabel";
+            this.TrxIDLabel.Size = new System.Drawing.Size(114, 23);
+            this.TrxIDLabel.TabIndex = 3;
             // 
             // EmailTextBox
             // 
@@ -194,12 +195,12 @@
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(154, 22);
             this.PhoneNumberTextBox.TabIndex = 1;
             // 
-            // textBox3
+            // EIRCodeTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(170, 63);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(154, 22);
-            this.textBox3.TabIndex = 1;
+            this.EIRCodeTextBox.Location = new System.Drawing.Point(170, 63);
+            this.EIRCodeTextBox.Name = "EIRCodeTextBox";
+            this.EIRCodeTextBox.Size = new System.Drawing.Size(154, 22);
+            this.EIRCodeTextBox.TabIndex = 1;
             // 
             // ClientNameTextBox
             // 
@@ -226,14 +227,14 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Phone Number";
             // 
-            // EIRCodeTextBox
+            // EIRCodeLabel
             // 
-            this.EIRCodeTextBox.AutoSize = true;
-            this.EIRCodeTextBox.Location = new System.Drawing.Point(21, 66);
-            this.EIRCodeTextBox.Name = "EIRCodeTextBox";
-            this.EIRCodeTextBox.Size = new System.Drawing.Size(65, 16);
-            this.EIRCodeTextBox.TabIndex = 0;
-            this.EIRCodeTextBox.Text = "EIR Code";
+            this.EIRCodeLabel.AutoSize = true;
+            this.EIRCodeLabel.Location = new System.Drawing.Point(21, 66);
+            this.EIRCodeLabel.Name = "EIRCodeLabel";
+            this.EIRCodeLabel.Size = new System.Drawing.Size(65, 16);
+            this.EIRCodeLabel.TabIndex = 0;
+            this.EIRCodeLabel.Text = "EIR Code";
             // 
             // SubmitButton
             // 
@@ -426,7 +427,8 @@
             // TransactionIdRadioButton
             // 
             this.TransactionIdRadioButton.AutoSize = true;
-            this.TransactionIdRadioButton.Location = new System.Drawing.Point(196, 27);
+            this.TransactionIdRadioButton.Checked = true;
+            this.TransactionIdRadioButton.Location = new System.Drawing.Point(38, 27);
             this.TransactionIdRadioButton.Name = "TransactionIdRadioButton";
             this.TransactionIdRadioButton.Size = new System.Drawing.Size(115, 20);
             this.TransactionIdRadioButton.TabIndex = 0;
@@ -437,11 +439,10 @@
             // EmailRadioButton
             // 
             this.EmailRadioButton.AutoSize = true;
-            this.EmailRadioButton.Location = new System.Drawing.Point(36, 27);
+            this.EmailRadioButton.Location = new System.Drawing.Point(245, 27);
             this.EmailRadioButton.Name = "EmailRadioButton";
             this.EmailRadioButton.Size = new System.Drawing.Size(62, 20);
             this.EmailRadioButton.TabIndex = 0;
-            this.EmailRadioButton.TabStop = true;
             this.EmailRadioButton.Text = "Email";
             this.EmailRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -454,6 +455,7 @@
             this.SearchButton.TabIndex = 2;
             this.SearchButton.Text = "S&earch";
             this.SearchButton.UseVisualStyleBackColor = false;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // ClearButtonSearch
             // 
@@ -464,6 +466,7 @@
             this.ClearButtonSearch.TabIndex = 2;
             this.ClearButtonSearch.Text = "C&lear";
             this.ClearButtonSearch.UseVisualStyleBackColor = false;
+            this.ClearButtonSearch.Click += new System.EventHandler(this.ClearButtonSearch_Click);
             // 
             // SummaryGroupBox
             // 
@@ -495,6 +498,7 @@
             this.SummaryButton.TabIndex = 2;
             this.SummaryButton.Text = "Su&mmary";
             this.SummaryButton.UseVisualStyleBackColor = false;
+            this.SummaryButton.Click += new System.EventHandler(this.SummaryButton_Click);
             // 
             // MainForm
             // 
@@ -509,7 +513,7 @@
             this.Controls.Add(this.PasswordGroupBoxScreen1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "MAD4CARS";
+            this.Text = "MAD4ROAD";
             this.PasswordGroupBoxScreen1.ResumeLayout(false);
             this.PasswordGroupBoxScreen1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyLogo)).EndInit();
@@ -552,14 +556,14 @@
         private System.Windows.Forms.GroupBox InvestorDetailsGroupBox;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Button ClearButtonSearch;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label TrxIDLabel;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.TextBox PhoneNumberTextBox;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox EIRCodeTextBox;
         private System.Windows.Forms.TextBox ClientNameTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label EIRCodeTextBox;
+        private System.Windows.Forms.Label EIRCodeLabel;
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;

@@ -20,17 +20,16 @@ namespace Assignment_3_Mad4Cars
         const int TERM_OPTION1 = 1, TERM_OPTION2 = 3, TERM_OPTION3 = 5, TERM_OPTION4 = 7;
         const decimal ROI_CATEG1_TERM_OPT1 = 6.00m, ROI_CATEG1_TERM_OPT2 =6.50m, ROI_CATEG1_TERM_OPT3 =7.00m, ROI_CATEG1_TERM_OPT4 =7.50m, ROI_CATEG2_TERM_OPT1 = 8.00m, ROI_CATEG2_TERM_OPT2 = 8.50m, ROI_CATEG2_TERM_OPT3 = 9.00m, ROI_CATEG2_TERM_OPT4 = 9.50m, ROI_CATEG3_TERM_OPT1 = 8.50m, ROI_CATEG3_TERM_OPT2 = 8.75m, ROI_CATEG3_TERM_OPT3 = 9.10m, ROI_CATEG3_TERM_OPT4 = 9.25m;
 
+        string emailToFile, nameToFile, eirToFile, phoneNumToFile, loanRequestedToFile, emiToFile, tenureToFiles, roiToFile, trxID;
 
+        
 
-        string emailToFile, nameToFile, eirToFile, phoneNumToFile, loanRequestedToFile, emiToFile, tenureToFiles, roiToFile; 
         decimal monthlyEMI;
-        
-
-        
-
+        string FILEPATH= @"D:\Assignments\Business Applicationn Programming\Assignment 3\Test.txt";
         const string ACTUAL_PASSOWRD = "123";
         const int MAX_ATTEMPTS = 3;
         int attemptCount = 1;
+
         private void LoginButton_Click(object sender, EventArgs e)
         {
             
@@ -156,10 +155,8 @@ namespace Assignment_3_Mad4Cars
                 MessageBox.Show("Please enter a valid Loan amount in the range of 40K to 80K");
                 PrincipalTextBox.Focus();
             }
-
-
-
         }
+        /*************************CODE FOR PROCEED BUTTON**********************************/
         private void ProceedButton_Click(object sender, EventArgs e)
         {
             int schemeSelected;
@@ -168,7 +165,10 @@ namespace Assignment_3_Mad4Cars
             if (!schemeSelected.Equals(-1))
             {
                 decimal principalAmount;
+                InvestorDetailsGroupBox.Enabled = true;
 
+                trxID = GenerateTRXid();
+                TrxIDLabel.Text=trxID;
                 principalAmount = decimal.Parse(PrincipalTextBox.Text);
                 if (principalAmount < 40000)
                 switch (schemeSelected)
@@ -245,28 +245,24 @@ namespace Assignment_3_Mad4Cars
                             loanRequestedToFile = principalAmount.ToString();
                             break;
                     }
-
                 }
-                    
-
             }
             else
             {
                 MessageBox.Show("Please select a loan tenure plan");
                 InvestmentListBox.Focus();  
             }
-
         }
+        /********************************CODE FOR SUBMIT********************************/
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            
             nameToFile = ClientNameTextBox.Text;
             eirToFile = EIRCodeTextBox.Text;
             phoneNumToFile = PhoneNumberTextBox.Text;
             emailToFile = EmailTextBox.Text;
 
             DialogResult result;
-                result = MessageBox.Show("Please check the below details. Click 'YES' if you wish to proceed \n" +
+            result = MessageBox.Show("Please check the below details. Click 'YES' if you wish to proceed \n" +
                 "ClientName: " + nameToFile +"\n"+
                 "Loan Requested: " + loanRequestedToFile + "\n" +
                 "Phone Number: " + phoneNumToFile + "\n" +
@@ -276,22 +272,51 @@ namespace Assignment_3_Mad4Cars
 
             if (result == DialogResult.Yes)
                 {
-                    
                     nameToFile = ClientNameTextBox.Text;
                     eirToFile = EIRCodeTextBox.Text;
                     phoneNumToFile = PhoneNumberTextBox.Text;
                     emailToFile = EmailTextBox.Text;
                     WriteToFile();
+                    ResetFormForNewTRX();
                 }
             else
-            {
-
-            }
-            
-
-                
+                {
+                    //pass
+                }       
         }
-        /*********************************************************************************/
+        //*********************** CODE FOR SEARCH FUNCTIONALITY***********************/
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            if (TransactionIdRadioButton.Checked)
+            {
+                string searchTRXid;
+                searchTRXid= SearchTextBox.Text;
+                SearchByTrxId(searchTRXid);
+            }
+            else
+            {
+                string searchEmail;
+                searchEmail= SearchTextBox.Text;
+                SearchListBox.Items.Clear();
+                SearchByEmail(searchEmail);
+            }
+
+        }
+        private void ClearButtonSearch_Click(object sender, EventArgs e)
+        {
+            SearchListBox.Items.Clear();
+            TransactionIdRadioButton.Checked = true;
+            SearchTextBox.Clear();
+
+        }
+        /***********************************CODE FOR SUMMARY**********************************/
+
+        private void SummaryButton_Click(object sender, EventArgs e)
+        {
+
+
+        }
+        /****************************USER DEFINED FUNCTIONS**********************************/
         private void ClearButtonInvestment_Click(object sender, EventArgs e)
         {
             InvestmentListBox.Items.Clear();
@@ -300,32 +325,115 @@ namespace Assignment_3_Mad4Cars
         static decimal MonthlyEMI(decimal p, decimal r, int n)
         {
             decimal totalAmountPayable = 0, monthlyEMI, mf;
-                decimal loanValue = p;
+            decimal loanValue = p;
             mf = (1 + (r / 100));
             for (int i = 0; i < n; i++)
             {
-                
                 loanValue = (loanValue *mf );
                 totalAmountPayable = loanValue;
-
             }
             monthlyEMI = (totalAmountPayable / 12);
             return monthlyEMI;
-
         }
         public void WriteToFile()
-        {
-            string myfile = "D:\\Assignments\\Business Applicationn Programming\\Assignment 3\\Test.txt";
-            using (StreamWriter sw = File.AppendText(myfile))
+        { 
+            StreamWriter dataWriter = File.AppendText(FILEPATH);
+            using (dataWriter)
             {
-                
-                sw.WriteLine(emailToFile);
-                sw.WriteLine(nameToFile);
-                sw.WriteLine(eirToFile);
-                sw.Close();
+                dataWriter.WriteLine(trxID);
+                dataWriter.WriteLine(emailToFile);
+                dataWriter.WriteLine(nameToFile);
+                dataWriter.WriteLine(eirToFile);
+                dataWriter.WriteLine("**********");
+                dataWriter.Close();
             }
         }
+        public void ResetFormForNewTRX()
+        {
+            PrincipalTextBox.Clear();
+            InvestmentListBox.Items.Clear();
+            ClientNameTextBox.Clear();
+            EIRCodeTextBox.Clear();
+            PhoneNumberTextBox.Clear();
+            EmailTextBox.Clear();
+            TrxIDLabel.Text="";
+        }
 
+        public string GenerateTRXid()
+        {
+            Random trxID = new Random();
+            string TrxIDNumber;
+            TrxIDNumber = trxID.Next(99999).ToString();
+            return TrxIDNumber;
+        }
+
+        public void SearchByTrxId(string trxIDvalue)
+        {
+            StreamReader dataReader=new StreamReader(FILEPATH);
+            using (dataReader)
+            {
+                string currentLine = dataReader.ReadLine();
+                bool valueFound=false;
+                while (valueFound==false)
+                {
+                    if (currentLine.Equals(trxIDvalue) && !dataReader.EndOfStream)
+                    {
+                        SearchListBox.Items.Add(trxIDvalue);
+                        valueFound=true;
+                    }
+                    else if(!currentLine.Equals(trxIDvalue) && !dataReader.EndOfStream)
+                    {
+                        currentLine = dataReader.ReadLine();
+                    }
+                    else if(!currentLine.Equals(trxIDvalue) && dataReader.EndOfStream)
+                    {
+                        MessageBox.Show("Not found");
+                        valueFound = true;
+                    }
+                }
+                
+            }
+        }
+        public void SearchByEmail(string emailValue)
+        {
+            string currentLine, trxID;
+            StreamReader dataReader = new StreamReader(FILEPATH);
+            bool recordsOver = false;
+            bool recordFound=false;
+            using (dataReader)
+            {
+                while (recordsOver == false)
+                {
+                    trxID = dataReader.ReadLine();
+                    currentLine = dataReader.ReadLine();
+                    if (currentLine==emailValue)
+                    {
+                        SearchListBox.Items.Add(trxID);
+                        SearchListBox.Items.Add(emailValue);
+                        SearchListBox.Items.Add(dataReader.ReadLine());
+                        SearchListBox.Items.Add(dataReader.ReadLine());
+                        SearchListBox.Items.Add(dataReader.ReadLine());
+                        recordFound = true;
+                    }
+                    else if(!(currentLine==emailValue) && !dataReader.EndOfStream)
+                    {
+                        currentLine=dataReader.ReadLine();
+                        currentLine=dataReader.ReadLine();
+                        currentLine=dataReader.ReadLine();
+                    }
+                    else if (recordFound==false && dataReader.EndOfStream)
+                    {
+                        MessageBox.Show("Not found");
+                        SearchTextBox.Focus();
+                        recordsOver = true;
+                    }
+                    else if (recordFound == true && dataReader.EndOfStream)
+                    {
+                        recordsOver = true;
+                    }
+                }
+            }
+        }
     }
 }
 
