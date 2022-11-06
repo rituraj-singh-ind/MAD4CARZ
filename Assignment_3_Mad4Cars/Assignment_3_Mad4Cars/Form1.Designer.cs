@@ -183,6 +183,7 @@
             // 
             // EmailTextBox
             // 
+            this.EmailTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.EmailTextBox.Location = new System.Drawing.Point(170, 123);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(154, 22);
@@ -191,12 +192,14 @@
             // PhoneNumberTextBox
             // 
             this.PhoneNumberTextBox.Location = new System.Drawing.Point(170, 93);
+            this.PhoneNumberTextBox.MaxLength = 10;
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(154, 22);
             this.PhoneNumberTextBox.TabIndex = 1;
             // 
             // EIRCodeTextBox
             // 
+            this.EIRCodeTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.EIRCodeTextBox.Location = new System.Drawing.Point(170, 63);
             this.EIRCodeTextBox.Name = "EIRCodeTextBox";
             this.EIRCodeTextBox.Size = new System.Drawing.Size(154, 22);
@@ -342,6 +345,7 @@
             this.InvestmentListBox.Name = "InvestmentListBox";
             this.InvestmentListBox.Size = new System.Drawing.Size(667, 132);
             this.InvestmentListBox.TabIndex = 3;
+            this.InvestmentListBox.SelectedIndexChanged += new System.EventHandler(this.InvestmentListBox_SelectedIndexChanged);
             // 
             // ClearButtonInvestment
             // 
@@ -357,6 +361,7 @@
             // ProceedButton
             // 
             this.ProceedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ProceedButton.Enabled = false;
             this.ProceedButton.Location = new System.Drawing.Point(426, 268);
             this.ProceedButton.Name = "ProceedButton";
             this.ProceedButton.Size = new System.Drawing.Size(114, 30);
@@ -419,6 +424,7 @@
             // 
             // SearchTextBox
             // 
+            this.SearchTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.SearchTextBox.Location = new System.Drawing.Point(36, 54);
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.Size = new System.Drawing.Size(275, 22);
