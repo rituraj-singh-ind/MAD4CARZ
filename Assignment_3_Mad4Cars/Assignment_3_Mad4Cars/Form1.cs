@@ -22,13 +22,10 @@ namespace Assignment_3_Mad4Cars
         }
         const int TERM_OPTION1 = 1, TERM_OPTION2 = 3, TERM_OPTION3 = 5, TERM_OPTION4 = 7, MONTHS = 12;
         const decimal ROI_CATEG1_TERM_OPT1 = 6.00m, ROI_CATEG1_TERM_OPT2 = 6.50m, ROI_CATEG1_TERM_OPT3 = 7.00m, ROI_CATEG1_TERM_OPT4 = 7.50m, ROI_CATEG2_TERM_OPT1 = 8.00m, ROI_CATEG2_TERM_OPT2 = 8.50m, ROI_CATEG2_TERM_OPT3 = 9.00m, ROI_CATEG2_TERM_OPT4 = 9.50m, ROI_CATEG3_TERM_OPT1 = 8.50m, ROI_CATEG3_TERM_OPT2 = 8.75m, ROI_CATEG3_TERM_OPT3 = 9.10m, ROI_CATEG3_TERM_OPT4 = 9.25m;
+        const string FILEPATH = "Customer_Data.txt";
+        const string ACTUAL_PASSOWRD = "123";
         string emailToFile, nameToFile, eirToFile, phoneNumToFile, loanRequestedToFile, emiToFile, tenureToFiles, roiToFile, trxID;
         decimal monthlyEMItoFile;
-        string FILEPATH = "Customer_Data.txt";
-
-
-
-        const string ACTUAL_PASSOWRD = "123";
         const int MAX_ATTEMPTS = 3;
         int attemptCount = 1;
 
@@ -47,6 +44,7 @@ namespace Assignment_3_Mad4Cars
                     InvestmentPanelScreen2.Visible = true;
                     SearchGroupBox.Visible = true;
                     SummaryGroupBox.Visible = true;
+                    SignOutButton.Visible = true;
                 }
                 else if (attemptCount < MAX_ATTEMPTS)
                 {
@@ -81,58 +79,60 @@ namespace Assignment_3_Mad4Cars
                 principalAmount = int.Parse(PrincipalTextBox.Text);
                 InvestmentListBox.Enabled = true;
                 InvestmentListBox.Items.Clear();
-                DisplayButton.Enabled = false;
-                ClearButtonInvestment.Enabled = false;
+                
+                ModifySelectionButton.Enabled = false;
 
-                if (principalAmount <= 40000)
+                if (principalAmount >=10000 && principalAmount<= 40000)
                 {
                     //Calculation of list variables for 1 Year Term
                     monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG1_TERM_OPT1, TERM_OPTION1);
                     totalInterest = ((monthlyEMItoFile * MONTHS) - principalAmount);
                     repaymentAmount = principalAmount + totalInterest;
-                    InvestmentListBox.Items.Add(TERM_OPTION1 + " Years\t\t" + ROI_CATEG1_TERM_OPT1 + "\t" + monthlyEMItoFile.ToString("0.00") + "\t" + totalInterest.ToString("0.00") + "\t" + repaymentAmount.ToString("0.00"));
+                    InvestmentListBox.Items.Add(TERM_OPTION1 + " Years\t\t" + ROI_CATEG1_TERM_OPT1+" %" + "\t\t" + monthlyEMItoFile.ToString("C2"
+                        ) + "\t\t" + totalInterest.ToString("C2") + "\t\t" + repaymentAmount.ToString("C2"));
 
                     //Calculation of list variables for 3 Year Term
                     monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG1_TERM_OPT2, TERM_OPTION2);
                     totalInterest = ((monthlyEMItoFile * MONTHS) - principalAmount);
                     repaymentAmount = principalAmount + totalInterest;
-                    InvestmentListBox.Items.Add(TERM_OPTION2 + " Years\t\t" + ROI_CATEG1_TERM_OPT2 + "\t" + monthlyEMItoFile.ToString("0.00") + "\t" + totalInterest.ToString("0.00") + "\t" + repaymentAmount.ToString("0.00"));
+                    InvestmentListBox.Items.Add(TERM_OPTION2 + " Years\t\t" + ROI_CATEG1_TERM_OPT2 + " %" + "\t\t" + monthlyEMItoFile.ToString("C2") + "\t\t" + totalInterest.ToString("C2") + "\t\t" + repaymentAmount.ToString("C2"));
 
                     //Calculation of list variables for 5 Year Term
                     monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG1_TERM_OPT3, TERM_OPTION3);
                     totalInterest = ((monthlyEMItoFile * MONTHS) - principalAmount);
                     repaymentAmount = principalAmount + totalInterest;
 
-                    InvestmentListBox.Items.Add(TERM_OPTION3 + " Years\t\t" + ROI_CATEG1_TERM_OPT3 + "\t" + monthlyEMItoFile.ToString("0.00") + "\t" + totalInterest.ToString("0.00") + "\t" + repaymentAmount.ToString("0.00"));
+                    InvestmentListBox.Items.Add(TERM_OPTION3 + " Years\t\t" + ROI_CATEG1_TERM_OPT3 + " %" + "\t\t" + monthlyEMItoFile.ToString("C2") + "\t\t" + totalInterest.ToString("C2") + "\t\t" + repaymentAmount.ToString("C2"));
 
                     //Calculation of list variables for 7 Year Term
+                    monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG1_TERM_OPT4, TERM_OPTION4);
                     totalInterest = ((monthlyEMItoFile * MONTHS) - principalAmount);
                     repaymentAmount = principalAmount + totalInterest;
-                    monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG1_TERM_OPT4, TERM_OPTION4);
+                    
 
-                    InvestmentListBox.Items.Add(TERM_OPTION4 + " Years\t\t" + ROI_CATEG1_TERM_OPT4 + "\t" + monthlyEMItoFile.ToString("0.00") + "\t" + totalInterest.ToString("0.00") + "\t" + repaymentAmount.ToString("0.00"));
+                    InvestmentListBox.Items.Add(TERM_OPTION4 + " Years\t\t" + ROI_CATEG1_TERM_OPT4 + " %" + "\t\t" + monthlyEMItoFile.ToString("C2") + "\t\t" + totalInterest.ToString("C2") + "\t\t" + repaymentAmount.ToString("C2"));
 
                 }
-                else if (principalAmount > 40000 && principalAmount <= 60000)
+                else if (principalAmount > 40000 && principalAmount <= 80000)
                 {
                     //Calculation of list variables for 1 Year Term
                     monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG2_TERM_OPT1, TERM_OPTION1);
                     totalInterest = (monthlyEMItoFile * 12);
                     repaymentAmount = principalAmount + totalInterest;
-                    InvestmentListBox.Items.Add(TERM_OPTION1 + " Years\t\t" + ROI_CATEG2_TERM_OPT1 + "\t" + monthlyEMItoFile.ToString("0.00") + "\t" + totalInterest.ToString("0.00") + "\t" + repaymentAmount.ToString("0.00"));
+                    InvestmentListBox.Items.Add(TERM_OPTION1 + " Years\t\t" + ROI_CATEG2_TERM_OPT1 + " %" + "\t\t" + monthlyEMItoFile.ToString("C2") + "\t\t" + totalInterest.ToString("C2") + "\t\t" + repaymentAmount.ToString("C2"));
 
                     //Calculation of list variables for 2 Year Term
                     monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG2_TERM_OPT2, TERM_OPTION2);
                     totalInterest = (monthlyEMItoFile * 12);
                     repaymentAmount = principalAmount + totalInterest;
-                    InvestmentListBox.Items.Add(TERM_OPTION2 + " Years\t\t" + ROI_CATEG2_TERM_OPT2 + "\t" + monthlyEMItoFile.ToString("0.00") + "\t" + totalInterest.ToString("0.00") + "\t" + repaymentAmount.ToString("0.00"));
+                    InvestmentListBox.Items.Add(TERM_OPTION2 + " Years\t\t" + ROI_CATEG2_TERM_OPT2 + " %" + "\t\t" + monthlyEMItoFile.ToString("C2") + "\t\t" + totalInterest.ToString("C2") + "\t\t" + repaymentAmount.ToString("C2"));
 
                     //Calculation of list variables for 3 Year Term
                     monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG2_TERM_OPT3, TERM_OPTION3);
                     totalInterest = (monthlyEMItoFile * 12);
                     repaymentAmount = principalAmount + totalInterest;
 
-                    InvestmentListBox.Items.Add(TERM_OPTION3 + " Years\t\t" + ROI_CATEG2_TERM_OPT3 + "\t" + monthlyEMItoFile.ToString("0.00") + "\t" + totalInterest.ToString("0.00") + "\t" + repaymentAmount.ToString("0.00"));
+                    InvestmentListBox.Items.Add(TERM_OPTION3 + " Years\t\t" + ROI_CATEG2_TERM_OPT3 + " %" + "\t\t" + monthlyEMItoFile.ToString("C2") + "\t\t" + totalInterest.ToString("C2") + "\t\t" + repaymentAmount.ToString("C2"));
 
                     //Calculation of list variables for 4 Year Term
                     monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG2_TERM_OPT4, TERM_OPTION4);
@@ -140,45 +140,45 @@ namespace Assignment_3_Mad4Cars
                     repaymentAmount = principalAmount + totalInterest;
 
 
-                    InvestmentListBox.Items.Add(TERM_OPTION4 + " Years\t\t" + ROI_CATEG2_TERM_OPT4 + "\t" + monthlyEMItoFile.ToString("0.00") + "\t" + totalInterest.ToString("0.00") + "\t" + repaymentAmount.ToString("0.00"));
+                    InvestmentListBox.Items.Add(TERM_OPTION4 + " Years\t\t" + ROI_CATEG2_TERM_OPT4 + " %" + "\t\t" + monthlyEMItoFile.ToString("C2") + "\t\t" + totalInterest.ToString("C2") + "\t\t" + repaymentAmount.ToString("C2"));
                 }
-                else if (principalAmount > 60000 && principalAmount < 80000)
+                else if (principalAmount > 80000 && principalAmount <= 100000)
                 {
                     //Calculation of list variables for 1 Year Term
                     monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG3_TERM_OPT1, TERM_OPTION1);
                     totalInterest = (monthlyEMItoFile * 12);
                     repaymentAmount = principalAmount + totalInterest;
-                    InvestmentListBox.Items.Add(TERM_OPTION1 + " Years\t\t" + ROI_CATEG3_TERM_OPT1 + "\t" + monthlyEMItoFile.ToString("0.00") + "\t" + totalInterest.ToString("0.00") + "\t" + repaymentAmount.ToString("0.00"));
+                    InvestmentListBox.Items.Add(TERM_OPTION1 + " Years\t\t" + ROI_CATEG3_TERM_OPT1 + " %" + "\t\t" + monthlyEMItoFile.ToString("C2") + "\t\t" + totalInterest.ToString("C2") + "\t\t" + repaymentAmount.ToString("C2"));
 
                     //Calculation of list variables for 2 Year Term
                     monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG3_TERM_OPT2, TERM_OPTION2);
                     totalInterest = (monthlyEMItoFile * 12);
                     repaymentAmount = principalAmount + totalInterest;
-                    InvestmentListBox.Items.Add(TERM_OPTION2 + " Years\t\t" + ROI_CATEG3_TERM_OPT2 + "\t" + monthlyEMItoFile.ToString("0.00") + "\t" + totalInterest.ToString("0.00") + "\t" + repaymentAmount.ToString("0.00"));
+                    InvestmentListBox.Items.Add(TERM_OPTION2 + " Years\t\t" + ROI_CATEG3_TERM_OPT2 + " %" + "\t\t" + monthlyEMItoFile.ToString("C2") + "\t\t" + totalInterest.ToString("C2") + "\t\t" + repaymentAmount.ToString("C2"));
 
                     //Calculation of list variables for 3 Year Term
                     monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG3_TERM_OPT3, TERM_OPTION3);
                     totalInterest = (monthlyEMItoFile * 12);
                     repaymentAmount = principalAmount + totalInterest;
 
-                    InvestmentListBox.Items.Add(TERM_OPTION3 + " Years\t\t" + ROI_CATEG3_TERM_OPT3 + "\t" + monthlyEMItoFile.ToString("0.00") + "\t" + totalInterest.ToString("0.00") + "\t" + repaymentAmount.ToString("0.00"));
+                    InvestmentListBox.Items.Add(TERM_OPTION3 + " Years\t\t" + ROI_CATEG3_TERM_OPT3 + " %" + "\t\t" + monthlyEMItoFile.ToString("C2") + "\t\t" + totalInterest.ToString("C2") + "\t\t" + repaymentAmount.ToString("C2"));
 
                     //Calculation of list variables for 4 Year Term
                     monthlyEMItoFile = MonthlyEMI(principalAmount, ROI_CATEG3_TERM_OPT4, TERM_OPTION4);
                     totalInterest = (monthlyEMItoFile * 12);
                     repaymentAmount = principalAmount + totalInterest;
-                    InvestmentListBox.Items.Add(TERM_OPTION4 + " Years\t\t" + ROI_CATEG3_TERM_OPT4 + "\t" + monthlyEMItoFile.ToString("0.00") + "\t" + totalInterest.ToString("0.00") + "\t" + repaymentAmount.ToString("0.00"));
+                    InvestmentListBox.Items.Add(TERM_OPTION4 + " Years\t\t" + ROI_CATEG3_TERM_OPT4 + " %" + "\t\t" + monthlyEMItoFile.ToString("C2") + "\t\t" + totalInterest.ToString("C2") + "\t\t" + repaymentAmount.ToString("C2"));
                 }
                 else
                 {
-                    MessageBox.Show("Please enter a valid Loan amount in the range of 40K to 80K");
+                    MessageBox.Show("Please enter a valid Loan amount in the range of € 10000 to € 100000","Invalid Amount",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     PrincipalTextBox.Focus();
                     PrincipalTextBox.SelectAll();
                 }
             }
             catch
             {
-                MessageBox.Show("Please enter a valid input");
+                MessageBox.Show("Please enter a valid input for loan amount","Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 PrincipalTextBox.Focus();
                 PrincipalTextBox.SelectAll();
                 DisplayButton.Enabled = true;
@@ -192,34 +192,29 @@ namespace Assignment_3_Mad4Cars
             SearchGroupBox.Visible = false;
             SummaryGroupBox.Visible = false;
             PasswordTextBox.Clear();
+            SignOutButton.Visible=false;
         }
-
         /*************************CODE FOR PROCEED BUTTON**********************************/
         private void InvestmentListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ProceedButton.Enabled = true;
         }
-
         private void ProceedButton_Click(object sender, EventArgs e)
         {
-
             int schemeSelected;
             InvestmentListBox.Enabled = false;
             ProceedButton.Enabled = false;
-            ClearButtonInvestment.Enabled = true;
+            ModifySelectionButton.Enabled = true;
             DisplayButton.Enabled = false;
             SubmitButton.Enabled = true;
             ClientNameTextBox.Focus();
             schemeSelected = InvestmentListBox.SelectedIndex;
-
             if (!schemeSelected.Equals(-1))
             {
                 decimal principalAmount;
                 InvestorDetailsGroupBox.Enabled = true;
-
                 trxID = GenerateTRXid();
                 TrxIDLabel.Text = trxID;
-
                 try
                 {
                     principalAmount = decimal.Parse(PrincipalTextBox.Text);
@@ -322,16 +317,12 @@ namespace Assignment_3_Mad4Cars
                     MessageBox.Show("Please enter a valid value", "Error");
                     PrincipalTextBox.Focus();
                 }
-
-
-
             }
         }
         /************************CODE FOR RESET BUTTON************************************/
         private void ResetButton_Click(object sender, EventArgs e)
         {
             ResetFormForNewTRX();
-
         }
         /********************************CODE FOR SUBMIT**********************************/
         private void SubmitButton_Click(object sender, EventArgs e)
@@ -343,18 +334,17 @@ namespace Assignment_3_Mad4Cars
             bool validationCheck, checkEmailFormat, checkContactFormat;
             checkEmailFormat = emailValidation(emailToFile);
             checkContactFormat = checkNumeric(phoneNumToFile);
-
             validationCheck = InvestorValidation();
             if (validationCheck && InvestmentListBox.SelectedIndex != -1)
             {
                 DialogResult result;
-                result = MessageBox.Show("Please check the below details. Click 'YES' if you wish to proceed \n" +
-                    "ClientName: " + nameToFile + "\n" +
-                    "Loan Requested: " + loanRequestedToFile + "\n" +
-                    "Phone Number: " + phoneNumToFile + "\n" +
-                    "Email: " + emailToFile + "\n" +
-                    "Monthly EMI: " + monthlyEMItoFile + "\n" +
-                    "Rate of Interest:" + roiToFile, "Please check details", MessageBoxButtons.YesNo);
+                result = MessageBox.Show("Do you wish to proceed with the below loan request? \n" +
+                    "ClientName:\t " + nameToFile + "\n" +
+                    "Loan Requested:\t " + loanRequestedToFile + "\n" +
+                    "Phone Number:\t " + phoneNumToFile + "\n" +
+                    "Email Address:\t " + emailToFile + "\n" +
+                    "Monthly EMI:\t " + monthlyEMItoFile.ToString("C2") + "\n" +
+                    "Rate of Interest:\t " + roiToFile+" %", "Please check details", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes && trxID!=null)
                 {
@@ -363,18 +353,16 @@ namespace Assignment_3_Mad4Cars
                     phoneNumToFile = PhoneNumberTextBox.Text;
                     emailToFile = EmailTextBox.Text;
                     WriteToFile();
+                    MessageBox.Show("Thank You!\n The loan has been processed successfully","Loan Sanctioned",MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ResetFormForNewTRX();
                 }
                 else if(result == DialogResult.Yes && trxID == null)
                 {
-                    MessageBox.Show("The transaction ID could not be generated. The customer data file is missing", "Unique ID generation failed!"); 
-                }
-                
+                    MessageBox.Show("The transaction ID could not be generated. The customer data file is missing", "Unique ID generation failed!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                }   
             }
-
-
         }
-        //*********************** CODE FOR SEARCH FUNCTIONALITY***********************/
+        //*********************** CODE FOR SEARCH FUNCTIONALITY***************************/
         private void SearchButton_Click(object sender, EventArgs e)
         {
             SearchListBox.Items.Clear();
@@ -392,7 +380,7 @@ namespace Assignment_3_Mad4Cars
                         }
                         catch
                         {
-                            MessageBox.Show("The Customer Data File was not Found");
+                            MessageBox.Show("The Customer Data File was not Found", "File Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
@@ -404,7 +392,6 @@ namespace Assignment_3_Mad4Cars
                 {
                     MessageBox.Show("The trasaction ID should be numeric", "Invalid input");
                 }
-
             }
             else
             {
@@ -418,24 +405,21 @@ namespace Assignment_3_Mad4Cars
                     }
                     catch
                     {
-                        MessageBox.Show("The Customer Data File was not Found","Error");
+                        MessageBox.Show("The Customer Data File was not Found", "File Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     
                 }
                 else
                 {
-                    MessageBox.Show("Enter a valid email address");
+                    MessageBox.Show("Enter a valid email address","Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
-
         }
         private void ClearButtonSearch_Click(object sender, EventArgs e)
         {
             SearchListBox.Items.Clear();
             TransactionIdRadioButton.Checked = true;
             SearchTextBox.Clear();
-
         }
         /***********************************CODE FOR SUMMARY**********************************/
 
@@ -444,36 +428,33 @@ namespace Assignment_3_Mad4Cars
             SumaryListBox.Items.Clear();
             try
             {
-                SumaryListBox.Items.Add("Total Loaned:\t" + TotalAmountBorrowedCalculation().ToString());
-                SumaryListBox.Items.Add("Total Interest:\t" + TotalInterestEarned().ToString());
-                SumaryListBox.Items.Add("Average Loan:\t" + AverageAmountBorrowed().ToString());
-                SumaryListBox.Items.Add("Average Interest:\t" + AverageInterestEarned().ToString());
+                SumaryListBox.Items.Add("Total Loaned:\t" + TotalAmountBorrowedCalculation().ToString("C2"));
+                SumaryListBox.Items.Add("Total Interest:\t" + TotalInterestEarned().ToString("C2"));
+                SumaryListBox.Items.Add("Average Loan:\t" + AverageAmountBorrowed().ToString("C2"));
+                SumaryListBox.Items.Add("Average Interest:\t" + AverageInterestEarned().ToString("C2"));
                 SumaryListBox.Items.Add("Average Months:\t" + AverageMonths().ToString());
             }
             catch
             {
-                MessageBox.Show("The customer data file was not found", "Error");
-            }
-            
+                MessageBox.Show("The Customer Data File was not Found", "File Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }  
         }
-
-        private void ClearButtonInvestment_Click(object sender, EventArgs e)
+        private void ClearSummaryButton_Click(object sender, EventArgs e)
+        {
+            SumaryListBox.Items.Clear();
+        }
+        private void ModifySelectionButton_Click(object sender, EventArgs e)
         {
             InvestmentListBox.Enabled = true;
             ProceedButton.Enabled = false;
             SubmitButton.Enabled = false;
             DisplayButton.Enabled = true;
-            ClearButtonInvestment.Enabled = false;
-
-            
+            ModifySelectionButton.Enabled = false;   
         }
-
         private void ExitButtonScr2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-
         /***************************USER DEFINED FUNCTIONS*********************************/
         static decimal MonthlyEMI(decimal p, decimal r, int n)
         {
@@ -502,7 +483,6 @@ namespace Assignment_3_Mad4Cars
                 dataWriter.WriteLine(monthlyEMItoFile);
                 dataWriter.WriteLine(tenureToFiles);
                 dataWriter.WriteLine(roiToFile + "%");
-
                 dataWriter.WriteLine("********************");
                 dataWriter.Close();
             }
@@ -518,10 +498,8 @@ namespace Assignment_3_Mad4Cars
             TrxIDLabel.Text = "";
             ProceedButton.Enabled = false;
             DisplayButton.Enabled = true;
-            ClearButtonInvestment.Enabled = false;
-            //ClearButtonInvestment.Enabled = true;
+            ModifySelectionButton.Enabled = false; 
         }
-
         public string GenerateTRXid()
         {
             string GeneratedTrxIDNumber, TrxIDinFile;
@@ -530,11 +508,9 @@ namespace Assignment_3_Mad4Cars
                 StreamReader dataReader = new StreamReader(FILEPATH);
                 Random trxID = new Random();
                 GeneratedTrxIDNumber = trxID.Next(99999).ToString();
-
                 using (dataReader)
                 {
                     bool valueFound = false;
-
                     while (valueFound == false)
                     {
                         TrxIDinFile = dataReader.ReadLine();
@@ -567,47 +543,44 @@ namespace Assignment_3_Mad4Cars
                 Random trxID = new Random();
                 GeneratedTrxIDNumber = trxID.Next(99999).ToString();
             }
-
-
             return GeneratedTrxIDNumber;
         }
-
         public void SearchByTrxId(string trxIDvalue)
         {
-            
-                StreamReader dataReader = new StreamReader(FILEPATH);
-                using (dataReader)
+            StreamReader dataReader = new StreamReader(FILEPATH);
+            using (dataReader)
+            {
+                string currentLine = dataReader.ReadLine();
+                bool valueFound = false;
+                while (valueFound == false)
                 {
-                    string currentLine = dataReader.ReadLine();
-                    bool valueFound = false;
-                    while (valueFound == false)
+                    if (currentLine.Equals(trxIDvalue) && !dataReader.EndOfStream)
                     {
-                        if (currentLine.Equals(trxIDvalue) && !dataReader.EndOfStream)
-                        {
-                            SearchListBox.Items.Add("Transaction ID:\t" + trxIDvalue);
-                            SearchListBox.Items.Add("Customer Email:\t" + dataReader.ReadLine());
-                            SearchListBox.Items.Add("Customer Name:\t" + dataReader.ReadLine());
-                            SearchListBox.Items.Add("EIR CODE:\t" + dataReader.ReadLine());
-                            SearchListBox.Items.Add("Phone Number:\t" + dataReader.ReadLine());
-                            SearchListBox.Items.Add("Loan Sanctioned:\t" + dataReader.ReadLine());
-                            SearchListBox.Items.Add("Monthly EMI:\t" + dataReader.ReadLine());
-                            SearchListBox.Items.Add("Tenure in Months:\t" + dataReader.ReadLine());
-                            SearchListBox.Items.Add("Rate of Interest:\t" + dataReader.ReadLine());
-                            valueFound = true;
-                        }
-                        else if (!currentLine.Equals(trxIDvalue) && !dataReader.EndOfStream)
-                        {
-                            currentLine = dataReader.ReadLine();
-                        }
-                        else if (!currentLine.Equals(trxIDvalue) && dataReader.EndOfStream)
+                        SearchListBox.Items.Add("Transaction ID:\t" + trxIDvalue);
+                        SearchListBox.Items.Add("Customer Email:\t" + dataReader.ReadLine());
+                        SearchListBox.Items.Add("Customer Name:\t" + dataReader.ReadLine());
+                        SearchListBox.Items.Add("EIR CODE:\t" + dataReader.ReadLine());
+                        SearchListBox.Items.Add("Phone Number:\t" + dataReader.ReadLine());
+                        SearchListBox.Items.Add("Loan Sanctioned:\t" + dataReader.ReadLine());
+                        SearchListBox.Items.Add("Monthly EMI:\t" + dataReader.ReadLine());
+                        SearchListBox.Items.Add("Tenure in Months:\t" + dataReader.ReadLine());
+                        SearchListBox.Items.Add("Rate of Interest:\t" + dataReader.ReadLine());
+                        valueFound = true;
+                        
+                    }
+                    else if (!currentLine.Equals(trxIDvalue) && !dataReader.EndOfStream)
+                    {
+                        currentLine = dataReader.ReadLine();
+                    }
+
+                    else if (!currentLine.Equals(trxIDvalue) && dataReader.EndOfStream)
                         {
                             MessageBox.Show("Not found");
                             valueFound = true;
                         }
                     }
                     dataReader.Close();
-                }
-            
+                }   
         }
 
         public void SearchByEmail(string emailValue)
@@ -667,10 +640,8 @@ namespace Assignment_3_Mad4Cars
         {
             decimal totalAmountBorrowed = 0;
             bool recordsOver = false;
-            
-                StreamReader dataReader = new StreamReader(FILEPATH);
-
-                using (dataReader)
+            StreamReader dataReader = new StreamReader(FILEPATH);
+            using (dataReader)
                 {
                     while (recordsOver == false)
                     {
@@ -693,8 +664,6 @@ namespace Assignment_3_Mad4Cars
                     }
                     dataReader.Close();
                 }
-            
-
             return totalAmountBorrowed;
         }
         public decimal AverageAmountBorrowed()
@@ -702,9 +671,7 @@ namespace Assignment_3_Mad4Cars
             decimal AvgAmountBorrowed = 0;
             int TransactionCount = 0;
             bool recordsOver = false;
-            
-                StreamReader dataReader = new StreamReader(FILEPATH);
-
+            StreamReader dataReader = new StreamReader(FILEPATH);
                 using (dataReader)
                 {
                     while (recordsOver == false)
@@ -730,10 +697,6 @@ namespace Assignment_3_Mad4Cars
                     }
                     dataReader.Close();
                 }
-
-
-
-           
             try
             {
                 return AvgAmountBorrowed / TransactionCount;
@@ -747,9 +710,7 @@ namespace Assignment_3_Mad4Cars
         {
             decimal totalInterestEarned = 0;
             bool recordsOver = false;
-
-            
-                StreamReader dataReader = new StreamReader(FILEPATH);
+            StreamReader dataReader = new StreamReader(FILEPATH);
                 using (dataReader)
                 {
                     while (recordsOver == false)
@@ -771,12 +732,9 @@ namespace Assignment_3_Mad4Cars
                         {
                             recordsOver = true;
                         }
-
                     }
                     dataReader.Close();
                 }
-            
-
             return totalInterestEarned;
         }
         public decimal AverageInterestEarned()
@@ -785,8 +743,7 @@ namespace Assignment_3_Mad4Cars
             int TransactionCount = 0;
             bool recordsOver = false;
             StreamReader dataReader = new StreamReader(FILEPATH);
-            
-                using (dataReader)
+            using (dataReader)
                 {
                     while (recordsOver == false)
                     {
@@ -807,24 +764,17 @@ namespace Assignment_3_Mad4Cars
                         {
                             recordsOver = true;
                         }
-
                     }
                     dataReader.Close();
                 }
-            
-
             return AvgInterestEarned / TransactionCount;
         }
-
-
         public decimal AverageMonths()
         {
             decimal AvgMonths = 0;
             int TransactionCount = 0;
             bool recordsOver = false;
-            
-                StreamReader dataReader = new StreamReader(FILEPATH);
-
+            StreamReader dataReader = new StreamReader(FILEPATH);
                 using (dataReader)
                 {
                     while (recordsOver == false)
@@ -846,16 +796,11 @@ namespace Assignment_3_Mad4Cars
                         {
                             recordsOver = true;
                         }
-
                     }
                     dataReader.Close();
                 }
-            
-
             return AvgMonths / TransactionCount;
         }
-
-     
         public bool InvestorValidation()
         {
             string Name = ClientNameTextBox.Text;
@@ -871,44 +816,42 @@ namespace Assignment_3_Mad4Cars
             {
                 if (Name == "")
                 {
-                    MessageBox.Show("Please Enter a Name", "Name Required");
+                    MessageBox.Show("Please Enter a Name", "Name Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ClientNameTextBox.Focus();
                     validation = false;
                     break;
                 }
                 else if (Eir == "")
                 {
-                    MessageBox.Show("Please Enter an EIR Code", "EIR Required");
+                    MessageBox.Show("Please Enter an EIR Code", "EIR Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     EIRCodeTextBox.Focus();
                     validation = false;
                     break;
                 }
                 else if (phoneNum == "")
                 {
-
-                    MessageBox.Show("Please Enter a Phone Number", "Contact Required");
+                    MessageBox.Show("Please Enter a Phone Number", "Contact Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     PhoneNumberTextBox.Focus();
                     validation = false;
                     break;
                 }
                 else if (phoneNum != "" && checkContactFormat == false)
                 {
-                    MessageBox.Show("Enter valid contact number");
+                    MessageBox.Show("Enter valid contact number","Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     PhoneNumberTextBox.Focus();
                     validation = false;
                     break;
                 }
-
                 else if (email.Equals(""))
                 {
-                    MessageBox.Show("Please Enter an email", "Email Required");
+                    MessageBox.Show("Please Enter an email", "Email Required",MessageBoxButtons.OK, MessageBoxIcon.Error);
                     PhoneNumberTextBox.Focus();
                     validation = false;
                     break;
                 }
                 else if (email != "" && checkEmailFormat == false)
                 {
-                    MessageBox.Show("Enter valid Email Address");
+                    MessageBox.Show("Enter valid Email Address","Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     EmailTextBox.Focus();
                     validation = false;
                     break;
@@ -918,13 +861,9 @@ namespace Assignment_3_Mad4Cars
                     validation = true;
                     break;
                 }
-
-
             }
             return validation;
-
         }
-
         public bool emailValidation(string emailEntered)
         {
             try

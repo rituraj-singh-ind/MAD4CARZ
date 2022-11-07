@@ -56,7 +56,7 @@
             this.InterestRateLabel = new System.Windows.Forms.Label();
             this.PeriodLabel = new System.Windows.Forms.Label();
             this.InvestmentListBox = new System.Windows.Forms.ListBox();
-            this.ClearButtonInvestment = new System.Windows.Forms.Button();
+            this.ModifySelectionButton = new System.Windows.Forms.Button();
             this.ProceedButton = new System.Windows.Forms.Button();
             this.DisplayButton = new System.Windows.Forms.Button();
             this.PrincipalTextBox = new System.Windows.Forms.TextBox();
@@ -73,6 +73,7 @@
             this.SummaryButton = new System.Windows.Forms.Button();
             this.ExitButtonScr2 = new System.Windows.Forms.Button();
             this.SignOutButton = new System.Windows.Forms.Button();
+            this.ClearSummaryButton = new System.Windows.Forms.Button();
             this.PasswordGroupBoxScreen1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyLogo)).BeginInit();
             this.InvestmentPanelScreen2.SuspendLayout();
@@ -291,7 +292,7 @@
             this.InvestmentSchemesGroupBox.Controls.Add(this.InterestRateLabel);
             this.InvestmentSchemesGroupBox.Controls.Add(this.PeriodLabel);
             this.InvestmentSchemesGroupBox.Controls.Add(this.InvestmentListBox);
-            this.InvestmentSchemesGroupBox.Controls.Add(this.ClearButtonInvestment);
+            this.InvestmentSchemesGroupBox.Controls.Add(this.ModifySelectionButton);
             this.InvestmentSchemesGroupBox.Controls.Add(this.ProceedButton);
             this.InvestmentSchemesGroupBox.Controls.Add(this.DisplayButton);
             this.InvestmentSchemesGroupBox.Controls.Add(this.PrincipalTextBox);
@@ -306,7 +307,7 @@
             // TotalRepaymentsLabel
             // 
             this.TotalRepaymentsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalRepaymentsLabel.Location = new System.Drawing.Point(363, 77);
+            this.TotalRepaymentsLabel.Location = new System.Drawing.Point(532, 82);
             this.TotalRepaymentsLabel.Name = "TotalRepaymentsLabel";
             this.TotalRepaymentsLabel.Size = new System.Drawing.Size(146, 33);
             this.TotalRepaymentsLabel.TabIndex = 4;
@@ -316,7 +317,7 @@
             // TotalInterestLabel
             // 
             this.TotalInterestLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalInterestLabel.Location = new System.Drawing.Point(288, 76);
+            this.TotalInterestLabel.Location = new System.Drawing.Point(405, 80);
             this.TotalInterestLabel.Name = "TotalInterestLabel";
             this.TotalInterestLabel.Size = new System.Drawing.Size(88, 34);
             this.TotalInterestLabel.TabIndex = 4;
@@ -326,7 +327,7 @@
             // MonthlyInterestLabel
             // 
             this.MonthlyInterestLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MonthlyInterestLabel.Location = new System.Drawing.Point(213, 71);
+            this.MonthlyInterestLabel.Location = new System.Drawing.Point(281, 79);
             this.MonthlyInterestLabel.Name = "MonthlyInterestLabel";
             this.MonthlyInterestLabel.Size = new System.Drawing.Size(87, 38);
             this.MonthlyInterestLabel.TabIndex = 4;
@@ -336,7 +337,7 @@
             // InterestRateLabel
             // 
             this.InterestRateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InterestRateLabel.Location = new System.Drawing.Point(149, 73);
+            this.InterestRateLabel.Location = new System.Drawing.Point(149, 75);
             this.InterestRateLabel.Name = "InterestRateLabel";
             this.InterestRateLabel.Size = new System.Drawing.Size(77, 41);
             this.InterestRateLabel.TabIndex = 4;
@@ -346,7 +347,7 @@
             // PeriodLabel
             // 
             this.PeriodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PeriodLabel.Location = new System.Drawing.Point(21, 71);
+            this.PeriodLabel.Location = new System.Drawing.Point(21, 74);
             this.PeriodLabel.Name = "PeriodLabel";
             this.PeriodLabel.Size = new System.Drawing.Size(83, 44);
             this.PeriodLabel.TabIndex = 4;
@@ -363,17 +364,17 @@
             this.InvestmentListBox.TabIndex = 3;
             this.InvestmentListBox.SelectedIndexChanged += new System.EventHandler(this.InvestmentListBox_SelectedIndexChanged);
             // 
-            // ClearButtonInvestment
+            // ModifySelectionButton
             // 
-            this.ClearButtonInvestment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClearButtonInvestment.Enabled = false;
-            this.ClearButtonInvestment.Location = new System.Drawing.Point(394, 268);
-            this.ClearButtonInvestment.Name = "ClearButtonInvestment";
-            this.ClearButtonInvestment.Size = new System.Drawing.Size(137, 30);
-            this.ClearButtonInvestment.TabIndex = 4;
-            this.ClearButtonInvestment.Text = "&Modify Selection";
-            this.ClearButtonInvestment.UseVisualStyleBackColor = false;
-            this.ClearButtonInvestment.Click += new System.EventHandler(this.ClearButtonInvestment_Click);
+            this.ModifySelectionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ModifySelectionButton.Enabled = false;
+            this.ModifySelectionButton.Location = new System.Drawing.Point(394, 268);
+            this.ModifySelectionButton.Name = "ModifySelectionButton";
+            this.ModifySelectionButton.Size = new System.Drawing.Size(137, 30);
+            this.ModifySelectionButton.TabIndex = 4;
+            this.ModifySelectionButton.Text = "&Modify Selection";
+            this.ModifySelectionButton.UseVisualStyleBackColor = false;
+            this.ModifySelectionButton.Click += new System.EventHandler(this.ModifySelectionButton_Click);
             // 
             // ProceedButton
             // 
@@ -483,16 +484,17 @@
             // ClearButtonSearch
             // 
             this.ClearButtonSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClearButtonSearch.Location = new System.Drawing.Point(206, 82);
+            this.ClearButtonSearch.Location = new System.Drawing.Point(201, 82);
             this.ClearButtonSearch.Name = "ClearButtonSearch";
             this.ClearButtonSearch.Size = new System.Drawing.Size(114, 30);
             this.ClearButtonSearch.TabIndex = 4;
-            this.ClearButtonSearch.Text = "C&lear";
+            this.ClearButtonSearch.Text = "C&lear Search";
             this.ClearButtonSearch.UseVisualStyleBackColor = false;
             this.ClearButtonSearch.Click += new System.EventHandler(this.ClearButtonSearch_Click);
             // 
             // SummaryGroupBox
             // 
+            this.SummaryGroupBox.Controls.Add(this.ClearSummaryButton);
             this.SummaryGroupBox.Controls.Add(this.SumaryListBox);
             this.SummaryGroupBox.Controls.Add(this.SummaryButton);
             this.SummaryGroupBox.Location = new System.Drawing.Point(797, 329);
@@ -515,7 +517,7 @@
             // SummaryButton
             // 
             this.SummaryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.SummaryButton.Location = new System.Drawing.Point(206, 173);
+            this.SummaryButton.Location = new System.Drawing.Point(36, 173);
             this.SummaryButton.Name = "SummaryButton";
             this.SummaryButton.Size = new System.Drawing.Size(114, 30);
             this.SummaryButton.TabIndex = 2;
@@ -527,7 +529,7 @@
             // 
             this.ExitButtonScr2.BackColor = System.Drawing.Color.RosyBrown;
             this.ExitButtonScr2.ForeColor = System.Drawing.Color.Black;
-            this.ExitButtonScr2.Location = new System.Drawing.Point(1046, 551);
+            this.ExitButtonScr2.Location = new System.Drawing.Point(1008, 551);
             this.ExitButtonScr2.Name = "ExitButtonScr2";
             this.ExitButtonScr2.Size = new System.Drawing.Size(109, 32);
             this.ExitButtonScr2.TabIndex = 2;
@@ -539,13 +541,25 @@
             // 
             this.SignOutButton.BackColor = System.Drawing.Color.RosyBrown;
             this.SignOutButton.ForeColor = System.Drawing.Color.Black;
-            this.SignOutButton.Location = new System.Drawing.Point(916, 551);
+            this.SignOutButton.Location = new System.Drawing.Point(838, 551);
             this.SignOutButton.Name = "SignOutButton";
             this.SignOutButton.Size = new System.Drawing.Size(109, 32);
             this.SignOutButton.TabIndex = 2;
             this.SignOutButton.Text = "Sign O&ut";
             this.SignOutButton.UseVisualStyleBackColor = false;
+            this.SignOutButton.Visible = false;
             this.SignOutButton.Click += new System.EventHandler(this.SignOutButton_Click);
+            // 
+            // ClearSummaryButton
+            // 
+            this.ClearSummaryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ClearSummaryButton.Location = new System.Drawing.Point(206, 173);
+            this.ClearSummaryButton.Name = "ClearSummaryButton";
+            this.ClearSummaryButton.Size = new System.Drawing.Size(114, 30);
+            this.ClearSummaryButton.TabIndex = 3;
+            this.ClearSummaryButton.Text = "Clear Su&mmary";
+            this.ClearSummaryButton.UseVisualStyleBackColor = false;
+            this.ClearSummaryButton.Click += new System.EventHandler(this.ClearSummaryButton_Click);
             // 
             // MainForm
             // 
@@ -622,9 +636,10 @@
         private System.Windows.Forms.Button SummaryButton;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button ResetButton;
-        private System.Windows.Forms.Button ClearButtonInvestment;
+        private System.Windows.Forms.Button ModifySelectionButton;
         private System.Windows.Forms.Button SignOutButton;
         private System.Windows.Forms.Button ExitButtonScr2;
+        private System.Windows.Forms.Button ClearSummaryButton;
     }
 }
 
