@@ -45,6 +45,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.EIRCodeLabel = new System.Windows.Forms.Label();
+            this.ResetButton = new System.Windows.Forms.Button();
             this.SubmitButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -70,6 +71,8 @@
             this.SummaryGroupBox = new System.Windows.Forms.GroupBox();
             this.SumaryListBox = new System.Windows.Forms.ListBox();
             this.SummaryButton = new System.Windows.Forms.Button();
+            this.ExitButtonScr2 = new System.Windows.Forms.Button();
+            this.SignOutButton = new System.Windows.Forms.Button();
             this.PasswordGroupBoxScreen1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyLogo)).BeginInit();
             this.InvestmentPanelScreen2.SuspendLayout();
@@ -125,7 +128,7 @@
             this.InvestmentPanelScreen2.Controls.Add(this.InvestmentSchemesGroupBox);
             this.InvestmentPanelScreen2.Location = new System.Drawing.Point(7, 4);
             this.InvestmentPanelScreen2.Name = "InvestmentPanelScreen2";
-            this.InvestmentPanelScreen2.Size = new System.Drawing.Size(775, 572);
+            this.InvestmentPanelScreen2.Size = new System.Drawing.Size(775, 584);
             this.InvestmentPanelScreen2.TabIndex = 2;
             this.InvestmentPanelScreen2.Visible = false;
             // 
@@ -141,20 +144,21 @@
             this.InvestorDetailsGroupBox.Controls.Add(this.label5);
             this.InvestorDetailsGroupBox.Controls.Add(this.label4);
             this.InvestorDetailsGroupBox.Controls.Add(this.EIRCodeLabel);
+            this.InvestorDetailsGroupBox.Controls.Add(this.ResetButton);
             this.InvestorDetailsGroupBox.Controls.Add(this.SubmitButton);
             this.InvestorDetailsGroupBox.Controls.Add(this.label6);
             this.InvestorDetailsGroupBox.Controls.Add(this.label2);
             this.InvestorDetailsGroupBox.Enabled = false;
             this.InvestorDetailsGroupBox.Location = new System.Drawing.Point(18, 323);
             this.InvestorDetailsGroupBox.Name = "InvestorDetailsGroupBox";
-            this.InvestorDetailsGroupBox.Size = new System.Drawing.Size(721, 238);
+            this.InvestorDetailsGroupBox.Size = new System.Drawing.Size(721, 218);
             this.InvestorDetailsGroupBox.TabIndex = 1;
             this.InvestorDetailsGroupBox.TabStop = false;
             this.InvestorDetailsGroupBox.Text = "Investor Details";
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(429, 161);
+            this.label8.Location = new System.Drawing.Point(429, 152);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(254, 57);
             this.label8.TabIndex = 5;
@@ -166,7 +170,7 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::Assignment_3_Mad4Cars.Properties.Resources.M4M_Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(432, 75);
+            this.pictureBox1.Location = new System.Drawing.Point(432, 66);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(262, 67);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -176,7 +180,7 @@
             // TrxIDLabel
             // 
             this.TrxIDLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TrxIDLabel.Location = new System.Drawing.Point(580, 30);
+            this.TrxIDLabel.Location = new System.Drawing.Point(580, 21);
             this.TrxIDLabel.Name = "TrxIDLabel";
             this.TrxIDLabel.Size = new System.Drawing.Size(114, 23);
             this.TrxIDLabel.TabIndex = 3;
@@ -184,30 +188,30 @@
             // EmailTextBox
             // 
             this.EmailTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.EmailTextBox.Location = new System.Drawing.Point(170, 123);
+            this.EmailTextBox.Location = new System.Drawing.Point(170, 114);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(154, 22);
-            this.EmailTextBox.TabIndex = 1;
+            this.EmailTextBox.TabIndex = 4;
             // 
             // PhoneNumberTextBox
             // 
-            this.PhoneNumberTextBox.Location = new System.Drawing.Point(170, 93);
+            this.PhoneNumberTextBox.Location = new System.Drawing.Point(170, 84);
             this.PhoneNumberTextBox.MaxLength = 10;
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(154, 22);
-            this.PhoneNumberTextBox.TabIndex = 1;
+            this.PhoneNumberTextBox.TabIndex = 3;
             // 
             // EIRCodeTextBox
             // 
             this.EIRCodeTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.EIRCodeTextBox.Location = new System.Drawing.Point(170, 63);
+            this.EIRCodeTextBox.Location = new System.Drawing.Point(170, 54);
             this.EIRCodeTextBox.Name = "EIRCodeTextBox";
             this.EIRCodeTextBox.Size = new System.Drawing.Size(154, 22);
-            this.EIRCodeTextBox.TabIndex = 1;
+            this.EIRCodeTextBox.TabIndex = 2;
             // 
             // ClientNameTextBox
             // 
-            this.ClientNameTextBox.Location = new System.Drawing.Point(170, 31);
+            this.ClientNameTextBox.Location = new System.Drawing.Point(170, 22);
             this.ClientNameTextBox.Name = "ClientNameTextBox";
             this.ClientNameTextBox.Size = new System.Drawing.Size(154, 22);
             this.ClientNameTextBox.TabIndex = 1;
@@ -215,7 +219,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 126);
+            this.label5.Location = new System.Drawing.Point(21, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 16);
             this.label5.TabIndex = 0;
@@ -224,7 +228,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 96);
+            this.label4.Location = new System.Drawing.Point(21, 87);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 16);
             this.label4.TabIndex = 0;
@@ -233,19 +237,30 @@
             // EIRCodeLabel
             // 
             this.EIRCodeLabel.AutoSize = true;
-            this.EIRCodeLabel.Location = new System.Drawing.Point(21, 66);
+            this.EIRCodeLabel.Location = new System.Drawing.Point(21, 57);
             this.EIRCodeLabel.Name = "EIRCodeLabel";
             this.EIRCodeLabel.Size = new System.Drawing.Size(65, 16);
             this.EIRCodeLabel.TabIndex = 0;
             this.EIRCodeLabel.Text = "EIR Code";
             // 
+            // ResetButton
+            // 
+            this.ResetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ResetButton.Location = new System.Drawing.Point(24, 175);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(114, 30);
+            this.ResetButton.TabIndex = 5;
+            this.ResetButton.Text = "&Reset Order";
+            this.ResetButton.UseVisualStyleBackColor = false;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
             // SubmitButton
             // 
             this.SubmitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.SubmitButton.Location = new System.Drawing.Point(210, 184);
+            this.SubmitButton.Location = new System.Drawing.Point(210, 175);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(114, 30);
-            this.SubmitButton.TabIndex = 2;
+            this.SubmitButton.TabIndex = 6;
             this.SubmitButton.Text = "&Submit";
             this.SubmitButton.UseVisualStyleBackColor = false;
             this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
@@ -253,7 +268,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(426, 34);
+            this.label6.Location = new System.Drawing.Point(426, 25);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(97, 16);
             this.label6.TabIndex = 0;
@@ -262,7 +277,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 34);
+            this.label2.Location = new System.Drawing.Point(21, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 16);
             this.label2.TabIndex = 0;
@@ -311,7 +326,7 @@
             // MonthlyInterestLabel
             // 
             this.MonthlyInterestLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MonthlyInterestLabel.Location = new System.Drawing.Point(213, 74);
+            this.MonthlyInterestLabel.Location = new System.Drawing.Point(213, 71);
             this.MonthlyInterestLabel.Name = "MonthlyInterestLabel";
             this.MonthlyInterestLabel.Size = new System.Drawing.Size(87, 38);
             this.MonthlyInterestLabel.TabIndex = 4;
@@ -326,6 +341,7 @@
             this.InterestRateLabel.Size = new System.Drawing.Size(77, 41);
             this.InterestRateLabel.TabIndex = 4;
             this.InterestRateLabel.Text = "Interest Rate";
+            this.InterestRateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PeriodLabel
             // 
@@ -350,11 +366,12 @@
             // ClearButtonInvestment
             // 
             this.ClearButtonInvestment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClearButtonInvestment.Location = new System.Drawing.Point(577, 268);
+            this.ClearButtonInvestment.Enabled = false;
+            this.ClearButtonInvestment.Location = new System.Drawing.Point(394, 268);
             this.ClearButtonInvestment.Name = "ClearButtonInvestment";
-            this.ClearButtonInvestment.Size = new System.Drawing.Size(114, 30);
-            this.ClearButtonInvestment.TabIndex = 2;
-            this.ClearButtonInvestment.Text = "&Clear";
+            this.ClearButtonInvestment.Size = new System.Drawing.Size(137, 30);
+            this.ClearButtonInvestment.TabIndex = 4;
+            this.ClearButtonInvestment.Text = "&Modify Selection";
             this.ClearButtonInvestment.UseVisualStyleBackColor = false;
             this.ClearButtonInvestment.Click += new System.EventHandler(this.ClearButtonInvestment_Click);
             // 
@@ -362,10 +379,10 @@
             // 
             this.ProceedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ProceedButton.Enabled = false;
-            this.ProceedButton.Location = new System.Drawing.Point(426, 268);
+            this.ProceedButton.Location = new System.Drawing.Point(557, 268);
             this.ProceedButton.Name = "ProceedButton";
-            this.ProceedButton.Size = new System.Drawing.Size(114, 30);
-            this.ProceedButton.TabIndex = 2;
+            this.ProceedButton.Size = new System.Drawing.Size(137, 30);
+            this.ProceedButton.TabIndex = 5;
             this.ProceedButton.Text = "&Proceed";
             this.ProceedButton.UseVisualStyleBackColor = false;
             this.ProceedButton.Click += new System.EventHandler(this.ProceedButton_Click);
@@ -417,10 +434,10 @@
             // 
             this.SearchListBox.FormattingEnabled = true;
             this.SearchListBox.ItemHeight = 16;
-            this.SearchListBox.Location = new System.Drawing.Point(37, 118);
+            this.SearchListBox.Location = new System.Drawing.Point(35, 118);
             this.SearchListBox.Name = "SearchListBox";
             this.SearchListBox.Size = new System.Drawing.Size(285, 180);
-            this.SearchListBox.TabIndex = 3;
+            this.SearchListBox.TabIndex = 5;
             // 
             // SearchTextBox
             // 
@@ -428,7 +445,7 @@
             this.SearchTextBox.Location = new System.Drawing.Point(36, 54);
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.Size = new System.Drawing.Size(275, 22);
-            this.SearchTextBox.TabIndex = 1;
+            this.SearchTextBox.TabIndex = 2;
             // 
             // TransactionIdRadioButton
             // 
@@ -448,7 +465,7 @@
             this.EmailRadioButton.Location = new System.Drawing.Point(245, 27);
             this.EmailRadioButton.Name = "EmailRadioButton";
             this.EmailRadioButton.Size = new System.Drawing.Size(62, 20);
-            this.EmailRadioButton.TabIndex = 0;
+            this.EmailRadioButton.TabIndex = 1;
             this.EmailRadioButton.Text = "Email";
             this.EmailRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -458,7 +475,7 @@
             this.SearchButton.Location = new System.Drawing.Point(33, 82);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(114, 30);
-            this.SearchButton.TabIndex = 2;
+            this.SearchButton.TabIndex = 3;
             this.SearchButton.Text = "S&earch";
             this.SearchButton.UseVisualStyleBackColor = false;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
@@ -469,7 +486,7 @@
             this.ClearButtonSearch.Location = new System.Drawing.Point(206, 82);
             this.ClearButtonSearch.Name = "ClearButtonSearch";
             this.ClearButtonSearch.Size = new System.Drawing.Size(114, 30);
-            this.ClearButtonSearch.TabIndex = 2;
+            this.ClearButtonSearch.TabIndex = 4;
             this.ClearButtonSearch.Text = "C&lear";
             this.ClearButtonSearch.UseVisualStyleBackColor = false;
             this.ClearButtonSearch.Click += new System.EventHandler(this.ClearButtonSearch_Click);
@@ -480,7 +497,7 @@
             this.SummaryGroupBox.Controls.Add(this.SummaryButton);
             this.SummaryGroupBox.Location = new System.Drawing.Point(797, 329);
             this.SummaryGroupBox.Name = "SummaryGroupBox";
-            this.SummaryGroupBox.Size = new System.Drawing.Size(355, 236);
+            this.SummaryGroupBox.Size = new System.Drawing.Size(355, 216);
             this.SummaryGroupBox.TabIndex = 4;
             this.SummaryGroupBox.TabStop = false;
             this.SummaryGroupBox.Text = "Summary";
@@ -490,15 +507,15 @@
             // 
             this.SumaryListBox.FormattingEnabled = true;
             this.SumaryListBox.ItemHeight = 16;
-            this.SumaryListBox.Location = new System.Drawing.Point(37, 32);
+            this.SumaryListBox.Location = new System.Drawing.Point(35, 32);
             this.SumaryListBox.Name = "SumaryListBox";
-            this.SumaryListBox.Size = new System.Drawing.Size(285, 148);
-            this.SumaryListBox.TabIndex = 3;
+            this.SumaryListBox.Size = new System.Drawing.Size(285, 132);
+            this.SumaryListBox.TabIndex = 1;
             // 
             // SummaryButton
             // 
             this.SummaryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.SummaryButton.Location = new System.Drawing.Point(208, 186);
+            this.SummaryButton.Location = new System.Drawing.Point(206, 173);
             this.SummaryButton.Name = "SummaryButton";
             this.SummaryButton.Size = new System.Drawing.Size(114, 30);
             this.SummaryButton.TabIndex = 2;
@@ -506,13 +523,39 @@
             this.SummaryButton.UseVisualStyleBackColor = false;
             this.SummaryButton.Click += new System.EventHandler(this.SummaryButton_Click);
             // 
+            // ExitButtonScr2
+            // 
+            this.ExitButtonScr2.BackColor = System.Drawing.Color.RosyBrown;
+            this.ExitButtonScr2.ForeColor = System.Drawing.Color.Black;
+            this.ExitButtonScr2.Location = new System.Drawing.Point(1046, 551);
+            this.ExitButtonScr2.Name = "ExitButtonScr2";
+            this.ExitButtonScr2.Size = new System.Drawing.Size(109, 32);
+            this.ExitButtonScr2.TabIndex = 2;
+            this.ExitButtonScr2.Text = "E&xit";
+            this.ExitButtonScr2.UseVisualStyleBackColor = false;
+            this.ExitButtonScr2.Click += new System.EventHandler(this.ExitButtonScr2_Click);
+            // 
+            // SignOutButton
+            // 
+            this.SignOutButton.BackColor = System.Drawing.Color.RosyBrown;
+            this.SignOutButton.ForeColor = System.Drawing.Color.Black;
+            this.SignOutButton.Location = new System.Drawing.Point(916, 551);
+            this.SignOutButton.Name = "SignOutButton";
+            this.SignOutButton.Size = new System.Drawing.Size(109, 32);
+            this.SignOutButton.TabIndex = 2;
+            this.SignOutButton.Text = "Sign O&ut";
+            this.SignOutButton.UseVisualStyleBackColor = false;
+            this.SignOutButton.Click += new System.EventHandler(this.SignOutButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1207, 581);
+            this.ClientSize = new System.Drawing.Size(1207, 591);
+            this.Controls.Add(this.SignOutButton);
             this.Controls.Add(this.SummaryGroupBox);
+            this.Controls.Add(this.ExitButtonScr2);
             this.Controls.Add(this.SearchGroupBox);
             this.Controls.Add(this.InvestmentPanelScreen2);
             this.Controls.Add(this.CompanyLogo);
@@ -553,7 +596,6 @@
         private System.Windows.Forms.Label TotalInterestLabel;
         private System.Windows.Forms.Label MonthlyInterestLabel;
         private System.Windows.Forms.Label InterestRateLabel;
-        private System.Windows.Forms.Button ClearButtonInvestment;
         private System.Windows.Forms.Button ProceedButton;
         private System.Windows.Forms.GroupBox SearchGroupBox;
         private System.Windows.Forms.TextBox SearchTextBox;
@@ -579,6 +621,10 @@
         private System.Windows.Forms.ListBox SumaryListBox;
         private System.Windows.Forms.Button SummaryButton;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button ResetButton;
+        private System.Windows.Forms.Button ClearButtonInvestment;
+        private System.Windows.Forms.Button SignOutButton;
+        private System.Windows.Forms.Button ExitButtonScr2;
     }
 }
 
